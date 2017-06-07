@@ -1,17 +1,17 @@
 from tinydb import TinyDB, Query
 import tournament
 import tournament_round
-import user
+import player
 import match
 
 if __name__ == '__main__':
     t_id = tournament.add('granament')
 
 
-    user_names = ['gran granman', 'gran grankvinna','gran granbarn', 'gran granhen', 'gran granhund']
-    user_ids = [user.add(user_name) for user_name in user_names]
+    player_names = ['gran granman', 'gran grankvinna','gran granbarn', 'gran granhen', 'gran granhund']
+    player_ids = [player.add(player_name) for player_name in player_names]
 
-    [tournament.add_user_to_tournament(u_id, t_id) for u_id in user_ids]
+    [tournament.add_player_to_tournament(p_id, t_id) for p_id in player_ids]
 
     tournament.seed_round(t_id)
 

@@ -1,5 +1,5 @@
 import utils
-import user
+import player
 
 def add(players):
     match_uuid = utils.generate_uuid()
@@ -16,7 +16,7 @@ def fetch(m_id):
 def as_str(m_id):
     m = fetch(m_id)
 
-    players = [user.as_str(u_id) for u_id in m['players']]
+    players = [player.as_str(p_id) for p_id in m['players']]
     p_str = ' - '.join(players)
 
     return f"""UUID: {m['uuid']}
