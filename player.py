@@ -7,7 +7,7 @@ def add(name):
     return player_uuid
 
 def fetch(p_id):
-    return utils.find_events('add_player', ('player', p_id))[0]
+    return utils.first_event('add_player', ('player', p_id))
 
 def as_str(p_id):
     if p_id == None:

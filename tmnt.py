@@ -8,7 +8,7 @@ if __name__ == '__main__':
     t_id = tournament.add('granament')
 
 
-    player_names = ['gran granman', 'gran grankvinna','gran granbarn', 'gran granhen', 'gran granhund']
+    player_names = ['gran grankvinna', 'gran granbarn', 'gran granhund']
     player_ids = [player.add(player_name) for player_name in player_names]
 
     [tournament.add_player_to_tournament(p_id, t_id) for p_id in player_ids]
@@ -23,6 +23,11 @@ if __name__ == '__main__':
 
     r_id = tournament.rounds(t_id)[0]
     matches = tournament_round.matches(r_id)
+
+    m_id = matches[0]
+    p_id = match.fetch(m_id)['players'][0]
+    match.register_point(m_id, p_id)
+    match.register_point(m_id, p_id)
     print("\n\n".join([match.as_str(m_id) for m_id in matches]))
 
 

@@ -10,7 +10,7 @@ def add(name):
     return tournament_uuid
 
 def fetch(t_id):
-    creation = utils.find_events('add_tournament', ('tournament', t_id))[0]
+    creation = utils.first_event('add_tournament', ('tournament', t_id))
 
     return {'name': creation['name'],
             'uuid': creation['tournament'],

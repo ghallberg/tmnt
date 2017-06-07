@@ -1,10 +1,10 @@
-from tinydb import TinyDB, Query
-
 import utils
 import match
 
 import random
+
 from itertools import zip_longest
+from tinydb import TinyDB, Query
 
 def seed(players):
     round_uuid = utils.generate_uuid()
@@ -27,7 +27,7 @@ def fetch(r_id):
     return {'uuid': creation['round']}
 
 def matches(r_id):
-    result = utils.find_events('create_round', ('round', r_id))[0]
+    result = utils.first_event('create_round', ('round', r_id))
     return result['matches']
 
 def as_str(r_id):
